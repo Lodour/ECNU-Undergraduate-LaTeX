@@ -28,18 +28,13 @@
 
 \theendnotes %尾注
 
-\cleardoublepage                                      %
-\phantomsection                                       %生成参考文献
+\cleardoublepage                                       %
+\phantomsection                                        %生成参考文献
 \addcontentsline{toc}{section}{参考文献}               %
 \printbibliography[title={\heiti \zihao {-4}参考文献}] %
 
-\clearpage                                       %
-\begin{appendices}                               %
-\renewcommand{\thesection}{\chinese{section}、}  %生成附录
-\input{./ending/Appendix.tex}                    %
-\end{appendices}                                 %
+\makeapdx %生成附录                              %
 
-\clearpage                           %生成感谢
-\input{./ending/acknowledgement.tex} %
+\makeacknowledgement %生成感谢
 
 \end{document}

@@ -97,6 +97,19 @@
 \clearpage              %重定义生成附录的命令，使得每个附录都单独成页
 \section{#1}}           %
 
+\newcommand{\makeapdx}{                          %
+\clearpage                                       %
+\begin{appendices}                               %
+\renewcommand{\thesection}{\chinese{section}、}  %生成附录，请勿改动
+\input{./ending/Appendix.tex}                    %
+\end{appendices}                                 %
+}                                                %
+
+\newcommand{\makeacknowledgement}{	 %
+\clearpage                           %生成感谢，请勿改动
+\input{./ending/acknowledgement.tex} %
+}                                    %
+
 %For Algorithm
 \usepackage{algorithm}
 \usepackage{algorithmicx}
