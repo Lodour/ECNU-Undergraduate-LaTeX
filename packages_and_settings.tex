@@ -13,11 +13,9 @@
 \usepackage{caption} %实现图片的多行说明
 \usepackage{float} %图片与表格的更好排版
 
-
-
 \usepackage{ulem} %更好的下划线
 
-\usepackage[ top=2.5cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry} %设置页边距
+\usepackage[ top=2.58cm, bottom=0cm, left=3.18cm, right=3.18cm]{geometry} %设置页边距
 
 \usepackage{fontspec}                   %设置字体需要的宏包
 \setmainfont{Times New Roman}           %设置西文字体为Times New Roman
@@ -54,6 +52,7 @@
 \usepackage{xcolor} %彩色的文字
 
 \usepackage[hidelinks]{hyperref} %各种超链接必备
+\usepackage{cleveref}
 
 \usepackage{endnotes}                                                           %
 \renewcommand{\enotesize}{\zihao{-5}}                                           %
@@ -79,11 +78,28 @@
 \newtheorem*{conjecture*}{\heiti 猜想}          %
 \newtheorem{problem}[theorem]{\heiti 问题}      %
 \newtheorem*{problem*}{\heiti 问题}             %
+\newtheorem{proposition}[theorem]{\heiti 命题}        %
+\newtheorem*{proposition*}{\heiti 命题}               %
+\newtheorem{remark}[theorem]{\heiti 注记}      %
+\newtheorem*{remark*}{\heiti 注记}             %
+\newtheorem{example}[theorem]{\heiti 例}      %
+\newtheorem*{example*}{\heiti 例}             %
 \newenvironment{solution}                       %
   {\renewcommand\qedsymbol{$\blacksquare$}      %
   \begin{proof}[\heiti \bf 解]}                 %
   {\end{proof}}                                 %
 \renewcommand*{\proofname}{\heiti \bf 证明}     %
+
+\crefformat{theorem}{#2\bf{\heiti 定理} #1#3}
+\crefformat{lemma}{#2\bf{\heiti 引理} #1#3}
+\crefformat{corollary}{#2\bf{\heiti 推论} #1#3}
+\crefformat{definition}{#2\bf{\heiti 定义} #1#3}
+\crefformat{conjecture}{#2\bf{\heiti 猜想} #1#3}
+\crefformat{problem}{#2\bf{\heiti 问题} #1#3}
+\crefformat{proposition}{#2\bf{\heiti 命题} #1#3}
+\crefformat{remark}{#2\bf{\heiti 注记} #1#3}
+\crefformat{example}{#2\bf{\heiti 例} #1#3}
+
 
 \allowdisplaybreaks %允许公式跨页显示
 
@@ -127,3 +143,23 @@
 
 %表格单元格内换行
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\usepackage{tocloft}
+\renewcommand{\contentsname}{\hfill \bf \heiti \zihao{-4} 目\hspace*{2em}录 \hfill}   
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cfttoctitlefont}{\heiti}
+\renewcommand{\cftsubsubsecfont}{\heiti}
+\renewcommand{\cftsubsecfont}{\heiti}
+\renewcommand{\cftsecfont}{\bf \heiti}
+
+\usepackage{soul}
+\usepackage{setspace}
+\usepackage[overlay,absolute]{textpos}
+
+\newcommand\PlaceText[3]{%
+\begin{textblock*}{10in}(#1,#2)  %% change width of box from 10in as you wish
+#3
+\end{textblock*}
+}
+
+\textblockorigin{0mm}{0mm} 

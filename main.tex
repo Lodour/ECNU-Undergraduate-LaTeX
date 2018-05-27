@@ -1,3 +1,7 @@
+% !TEX root
+% !TEX program = xelatex
+% !BIB program = biber
+
 \documentclass[a4paper,oneside,UTF8]{article} %A4纸，单面，UTF-8
 
 \input{packages_and_settings.tex} %加载各宏包以及本模板的主要设置
@@ -7,7 +11,7 @@
 \pagestyle{empty} %不对正文前的各页面使用页眉页脚
 
 \input{./preface/inner-cover.tex} %插入内封面
-
+\newgeometry{top=2.5cm, bottom=2.0cm, left=3.0cm, right=2.0cm}
 \tableofcontents %生成目录
 
 \input{./preface/abstract.tex} %生成中英文摘要及关键词
