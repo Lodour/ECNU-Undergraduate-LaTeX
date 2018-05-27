@@ -2,8 +2,6 @@
 
 ### 华东师范大学本科生毕业论文模板
 
-本模板的封面参考了[fentensoft](https://github.com/fentensoft)制作的[ecnu-latex](https://github.com/fentensoft/ecnu-latex)模板。
-
 本项目中`gb7714-2015.bbx`与`gb7714-2015.cbx`两个文件为[hushidong](https://github.com/hushidong)的所做满足GB/T7714-2015标准的[biblatex样式包](https://github.com/hushidong/biblatex-gb7714-2015)。
 
 ### 结构
