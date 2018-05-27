@@ -10,9 +10,13 @@
 \begin{document}
 \pagestyle{empty} %不对正文前的各页面使用页眉页脚
 
+\newgeometry{top=2.58cm, bottom=0cm, left=3.18cm, right=3.18cm} %设置用于首页后的页边距
 \input{./preface/inner-cover.tex} %插入内封面
-\newgeometry{top=2.5cm, bottom=2.0cm, left=3.0cm, right=2.0cm}
-\tableofcontents %生成目录
+\restoregeometry
+
+%生成目录
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\tableofcontents
 
 \input{./preface/abstract.tex} %生成中英文摘要及关键词
 
@@ -20,24 +24,21 @@
 \pagestyle{fancy} %开始使用页眉页脚
 \setcounter{page}{1} %论文页码从正文开始记数
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-                                                        %
-\input{./body/SectionA.tex} %正文第一章                  %
-\input{./body/SectionB.tex} %正文第二章                  % 
-\input{./body/SectionC.tex} %正文第三章                  % <=一般情况下，本文件内你只需要修改这部分内容
-\input{./body/SectionD.tex} %正文第四章                  % 
-\input{./body/SectionE.tex} %正文第五章                  % 
-                                                        %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{./body/SectionA.tex} %正文第一章
+\input{./body/SectionB.tex} %正文第二章
+\input{./body/SectionC.tex} %正文第三章
+\input{./body/SectionD.tex} %正文第四章
+\input{./body/SectionE.tex} %正文第五章
 
-\theendnotes %尾注
+\theendnotes %尾注（若没有尾注请将本行删除）
 
-\cleardoublepage                                       %
-\phantomsection                                        %生成参考文献
-\addcontentsline{toc}{section}{参考文献}               %
-\printbibliography[title={\heiti \zihao {-4}参考文献}] %
+%生成参考文献
+\cleardoublepage
+\phantomsection            
+\addcontentsline{toc}{section}{参考文献}
+\printbibliography[title={\heiti \zihao {-4}参考文献}]
 
-\makeapdx %生成附录                              %
+\makeapdx %生成附录（若没有附录请将本行删除）
 
 \makeacknowledgement %生成感谢
 

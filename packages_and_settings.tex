@@ -12,10 +12,9 @@
 \usepackage{booktabs} %表格相关的宏包
 \usepackage{caption} %实现图片的多行说明
 \usepackage{float} %图片与表格的更好排版
-
 \usepackage{ulem} %更好的下划线
 
-\usepackage[ top=2.58cm, bottom=0cm, left=3.18cm, right=3.18cm]{geometry} %设置页边距
+\usepackage[top=2.5cm, bottom=2.0cm, left=3.0cm, right=2.0cm]{geometry} %设置用于首页的页边距
 
 \usepackage{fontspec}                   %设置字体需要的宏包
 \setmainfont{Times New Roman}           %设置西文字体为Times New Roman
@@ -27,69 +26,74 @@
 \showboxdepth=5
 \showboxbreadth=5 
 
-\setcounter{secnumdepth}{5}                                                                                     %
-\ctexset { section = { name={,、},number={\chinese{section}},format={\centering \heiti \zihao {-4}} } }         %
-\ctexset { subsection = { name={（,）},number={\chinese{subsection}},format={\centering \heiti \zihao {-4}} } } %设置各级系统的编号格式
-\ctexset { subsubsection = { name={,.},number={\arabic{subsubsection}},format={\heiti \zihao {-4}} } }          %
-\ctexset { paragraph = { name={（,）},number={\arabic{paragraph}},format={\heiti \zihao {-4}} } }               %
-\ctexset { subparagraph = { name={,）},number={\arabic{subparagraph}},format={\heiti \zihao {-4}} } }           %
+%设置各级系统的编号格式
+\setcounter{secnumdepth}{5}                                                                                     
+\ctexset { section = { name={,、},number={\chinese{section}},format={\centering \heiti \zihao {-4}} } }
+\ctexset { subsection = { name={（,）},number={\chinese{subsection}},format={\centering \heiti \zihao {-4}} } }
+\ctexset { subsubsection = { name={,.},number={\arabic{subsubsection}},format={\heiti \zihao {-4}} } }
+\ctexset { paragraph = { name={（,）},number={\arabic{paragraph}},format={\heiti \zihao {-4}} } }
+\ctexset { subparagraph = { name={,）},number={\arabic{subparagraph}},format={\heiti \zihao {-4}} } }
 
 \usepackage[bottom,perpage]{footmisc}               %脚注，显示在每页底部，编号按页重置
 \renewcommand*{\footnotelayout}{\zihao{-5}\songti}  %设置脚注为小五号宋体
 \renewcommand{\thefootnote}{[\arabic{footnote}]}    %设置脚注标记为  [编号]
-                      %脚注的反向超链接
 
-
-\usepackage{fancyhdr}               %
-%\renewcommand{\headrulewidth}{0pt}  %
-\lhead{华东师范大学学士学位论文}                            %
-\chead{}                            %将页眉页脚设置为：仅在右下角显示页码
-\rhead{\TitleCHS}                            %
-\lfoot{}                            %
-\cfoot{}                            %
-\rfoot{\thepage}                    %
+%设置页眉页脚
+\usepackage{fancyhdr}
+\lhead{华东师范大学学士学位论文}
+\chead{}
+\rhead{\TitleCHS}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
 
 \usepackage{xcolor} %彩色的文字
 
 \usepackage[hidelinks]{hyperref} %各种超链接必备
-\usepackage{cleveref}
+\usepackage{cleveref} %交叉引用
 
-\usepackage{endnotes}                                                           %
-\renewcommand{\enotesize}{\zihao{-5}}                                           %
-\renewcommand{\notesname}{\heiti \zihao {-4} 尾注}                              %
-\renewcommand\enoteformat{                                                      %
-  \raggedright                                                                  %尾注的相关设置
-  \leftskip=1.8em                                                               %
-  \makebox[0pt][r]{\theenmark. \rule{0pt}{\dimexpr\ht\strutbox+\baselineskip}}  %
-}                                                                               %
-\renewcommand\makeenmark{\textsuperscript{[尾注\theenmark]}}                    %
+%设置尾注
+\usepackage{endnotes}
+\renewcommand{\enotesize}{\zihao{-5}}
+\renewcommand{\notesname}{\heiti \zihao {-4} 尾注}
+\renewcommand\enoteformat{
+	\raggedright
+	\leftskip=1.8em
+	\makebox[0pt][r]{\theenmark. \rule{0pt}{\dimexpr\ht\strutbox+\baselineskip}}
+}
+\renewcommand\makeenmark{\textsuperscript{[尾注\theenmark]}}
 \usepackage{footnotebackref}  
 
-
-\newtheorem{theorem}{\heiti 定理}[section]      %
-\newtheorem*{theorem*}{\heiti 定理}             %
-\newtheorem{lemma}[theorem]{\heiti 引理}        %
-\newtheorem*{lemma*}{\heiti 引理}               %
-\newtheorem{corollary}[theorem]{\heiti 推论}    %
-\newtheorem*{corollary*}{\heiti 推论}           %
-\newtheorem{definition}[theorem]{\heiti 定义}   %
-\newtheorem*{definition*}{\heiti 定义}          %
-\newtheorem{conjecture}[theorem]{\heiti 猜想}   %将各种常用环境设置为中文
-\newtheorem*{conjecture*}{\heiti 猜想}          %
-\newtheorem{problem}[theorem]{\heiti 问题}      %
-\newtheorem*{problem*}{\heiti 问题}             %
-\newtheorem{proposition}[theorem]{\heiti 命题}        %
-\newtheorem*{proposition*}{\heiti 命题}               %
-\newtheorem{remark}[theorem]{\heiti 注记}      %
-\newtheorem*{remark*}{\heiti 注记}             %
-\newtheorem{example}[theorem]{\heiti 例}      %
-\newtheorem*{example*}{\heiti 例}             %
-\newenvironment{solution}                       %
-  {\renewcommand\qedsymbol{$\blacksquare$}      %
-  \begin{proof}[\heiti \bf 解]}                 %
-  {\end{proof}}                                 %
-\renewcommand*{\proofname}{\heiti \bf 证明}     %
-
+%定义各种常用环境
+\newtheorem{theorem}{\heiti 定理}[section]
+\newtheorem*{theorem*}{\heiti 定理}
+\newtheorem{lemma}[theorem]{\heiti 引理}
+\newtheorem*{lemma*}{\heiti 引理}
+\newtheorem{corollary}[theorem]{\heiti 推论}
+\newtheorem*{corollary*}{\heiti 推论}
+\newtheorem{definition}[theorem]{\heiti 定义}
+\newtheorem*{definition*}{\heiti 定义}
+\newtheorem{conjecture}[theorem]{\heiti 猜想}
+\newtheorem*{conjecture*}{\heiti 猜想}
+\newtheorem{problem}[theorem]{\heiti 问题}
+\newtheorem*{problem*}{\heiti 问题}
+\newtheorem{proposition}[theorem]{\heiti 命题}
+\newtheorem*{proposition*}{\heiti 命题}
+\newtheorem{remark}[theorem]{\heiti 注记}
+\newtheorem*{remark*}{\heiti 注记}
+\newtheorem{example}[theorem]{\heiti 例}
+\newtheorem*{example*}{\heiti 例}
+\newenvironment{solution}
+{
+  \renewcommand\qedsymbol{$\blacksquare$}
+	\begin{proof}[\heiti \bf 解]
+}
+{
+	\end{proof}
+}
+\renewcommand*{\proofname}{\heiti \bf 证明}
+	
+%设置各种常用环境的交叉引用格式
 \crefformat{theorem}{#2\bf{\heiti 定理} #1#3}
 \crefformat{lemma}{#2\bf{\heiti 引理} #1#3}
 \crefformat{corollary}{#2\bf{\heiti 推论} #1#3}
@@ -99,33 +103,37 @@
 \crefformat{proposition}{#2\bf{\heiti 命题} #1#3}
 \crefformat{remark}{#2\bf{\heiti 注记} #1#3}
 \crefformat{example}{#2\bf{\heiti 例} #1#3}
-
-
-\allowdisplaybreaks %允许公式跨页显示
-
-
-\usepackage[bibstyle=gb7714-2015,citestyle=gb7714-2015,hyperref=true,backend=biber,sorting=none]{biblatex} %使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
-
-\usepackage[titletoc,title]{appendix} %提供了附录支持并显示在目录中
-\renewcommand{\appendixtocname}{附录} %
-
-\newcommand{\apdx}[1] { %
-\clearpage              %重定义生成附录的命令，使得每个附录都单独成页
-\section{#1}}           %
-
-\newcommand{\makeapdx}{                          %
-\clearpage                                       %
-\begin{appendices}                               %
-\renewcommand{\thesection}{\chinese{section}、}  %生成附录，请勿改动
-\input{./ending/Appendix.tex}                    %
-\end{appendices}                                 %
-}                                                %
-
-\newcommand{\makeacknowledgement}{	 %
-\clearpage                           %生成感谢，请勿改动
-\input{./ending/acknowledgement.tex} %
-}                                    %
-
+	
+%允许公式跨页显示
+\allowdisplaybreaks
+	
+%使用biblatex管理文献，输出格式使用gb7714-2015标准，后端为biber
+\usepackage[bibstyle=gb7714-2015,citestyle=gb7714-2015,hyperref=true,backend=biber,sorting=none]{biblatex}
+	
+%提供了附录支持并显示在目录中
+\usepackage[titletoc,title]{appendix} 
+\renewcommand{\appendixtocname}{附录}
+	
+%重定义生成附录的命令，使得每个附录都单独成页
+\newcommand{\apdx}[1] {
+	\clearpage
+	\section{#1}}
+	
+%生成附录，请勿改动
+\newcommand{\makeapdx}{
+	\clearpage
+	\begin{appendices}
+		\renewcommand{\thesection}{\chinese{section}、}
+		\input{./ending/Appendix.tex}
+	\end{appendices}
+}
+	
+%生成感谢，请勿改动
+\newcommand{\makeacknowledgement}{
+	\clearpage
+	\input{./ending/acknowledgement.tex}
+}
+	
 %For Algorithm
 \usepackage{algorithm}
 \usepackage{algorithmicx}
@@ -133,17 +141,18 @@
 \floatname{algorithm}{算法}
 \renewcommand{\algorithmicrequire}{\textbf{输入:}}
 \renewcommand{\algorithmicensure}{\textbf{输出:}}
-
+	
 %使表格中的脚注也能够正常显示
 %\usepackage{footnote}
 %\makesavenoteenv{table}
-
+	
 %可能会需要在用自然语言描述算法步骤时使用的宏包
 \usepackage{enumitem}
-
+	
 %表格单元格内换行
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
-
+	
+%设置目录字体
 \usepackage{tocloft}
 \renewcommand{\contentsname}{\hfill \bf \heiti \zihao{-4} 目\hspace*{2em}录 \hfill}   
 \renewcommand{\cftaftertoctitle}{\hfill}
@@ -151,15 +160,7 @@
 \renewcommand{\cftsubsubsecfont}{\heiti}
 \renewcommand{\cftsubsecfont}{\heiti}
 \renewcommand{\cftsecfont}{\bf \heiti}
-
-\usepackage{soul}
-\usepackage{setspace}
-\usepackage[overlay,absolute]{textpos}
-
-\newcommand\PlaceText[3]{%
-\begin{textblock*}{10in}(#1,#2)  %% change width of box from 10in as you wish
-#3
-\end{textblock*}
-}
-
-\textblockorigin{0mm}{0mm} 
+	
+	
+\usepackage{soul} %又一个下划线包
+\usepackage{setspace} %灵活的行距定义（用于封面）
